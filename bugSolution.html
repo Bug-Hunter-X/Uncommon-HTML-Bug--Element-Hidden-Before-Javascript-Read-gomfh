@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+<style>
+  #myDiv {
+    display: none; /* Initially hide the element */
+  }
+</style>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+  <script>
+    //In this solution, the Javascript engine does not work before the HTML is loaded into the browser.
+    setTimeout(function(){
+        document.getElementById("myDiv").style.display = "block";
+    }, 1000);
+  </script>
+</body>
+</html>
