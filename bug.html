@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+  <script>
+    document.getElementById("myDiv").style.display = "none";
+    //The bug is that the element is hidden before the Javascript engine can read it, and the HTML cannot be loaded properly.
+    //This will cause a blank screen
+    setTimeout(function(){
+        document.getElementById("myDiv").style.display = "block";
+    }, 1000);
+  </script>
+</body>
+</html>
